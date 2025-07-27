@@ -4,6 +4,8 @@ const dotenv = require("dotenv");
 const morgan = require("morgan");
 const { connect_db, disconnect_db } = require("./Config/db");
 const adminRouter = require("./Routes/adminRoute");
+const chatRouter = require("./Routes/chatRoute");
+const blogsRouter = require("./Routes/blogsRoute");
 
 dotenv.config();
 
@@ -15,8 +17,9 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 // routes here
-
 app.use("/admin", adminRouter);
+app.use("/chat", chatRouter);
+app.use("/blog", blogsRouter);
 
 app.get("/", (req, res) => {
   res.send("Yes you are there.");
