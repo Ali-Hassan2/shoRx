@@ -51,24 +51,34 @@ const RightSide = styled.div`
   width: 50%;
   height: 100%;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
   gap: 60px;
   padding-right: 100px;
+
+  @media (max-width: 1024px) {
+    gap: 40px;
+    padding-right: 50px;
+  }
 
   @media (max-width: 768px) {
     width: 100%;
     flex-wrap: wrap;
     gap: 20px;
-    padding: 10px 0;
+    padding: 10px 20px; /* add horizontal padding */
+    justify-content: center; /* center content on smaller screens */
+  }
+
+  @media (max-width: 480px) {
+    gap: 12px;
+    padding: 8px 10px;
   }
 `;
-
 const Anchor = styled.div`
   color: white;
   text-decoration: none;
   padding: 0.4vw 1vw;
-  padding-bottom: 10px;
+  padding-bottom: 8px;
   border-radius: 50px;
   text-align: center;
   display: flex;

@@ -9,8 +9,8 @@ const InputWrapper = styled.div`
   font-family: "Mulish", sans-serif;
   border: 1px solid #191919;
 
-  /* ✅ Add this soft white shadow */
-  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.06);
+  /* Subtle white glow */
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.15);
 
   @media (max-width: 850px) {
     width: 90%;
@@ -19,7 +19,7 @@ const InputWrapper = styled.div`
 
 const First = styled.div`
   width: 100%;
-  height: 50%;
+  height: 70%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -41,24 +41,44 @@ const Input = styled.input`
 
 const SendIconWrapper = styled.div`
   position: relative;
-  padding: 0.5vw;
+  padding: 0.5vw; /* scales with viewport width */
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  background-color: none;
+  background-color: black;
   top: 6px;
+  width: max-content; /* shrink to content width */
+  height: max-content; /* shrink to content height */
+
+  @media (max-width: 768px) {
+    padding: 1vw; /* slightly bigger padding on smaller screens */
+    border-width: 2px;
+    top: 4px;
+  }
+
+  @media (max-width: 480px) {
+    padding: 1.5vw; /* more padding on very small screens */
+    border-width: 1.5px;
+    top: 3px;
+  }
 `;
 
 const BottomIconsWrapper = styled.div`
-  width: 100%;
-  height: 50%;
+  width: 801px;
+  position: relative;
+  left: -1px;
+  height: 40%;
   margin-top: 10px;
   display: flex;
   align-items: center;
   gap: 20px;
   padding-left: 18px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  padding-top: 10px;
+  padding-bottom: 7px;
 `;
 
 const Icon = styled.div`
