@@ -12,7 +12,7 @@ const fetchingresponse = async (prompt: string): Promise<FetchingResponse> => {
   const controller = new AbortController();
   const signal = controller.signal;
 
-  const timer = 2000;
+  const timer = 15000;
   const timeout = setTimeout(() => controller.abort(), timer);
 
   try {

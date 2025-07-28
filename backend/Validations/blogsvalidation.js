@@ -17,7 +17,7 @@ const blogValidation = z.object({
     .datetime("Update date must be a valid ISO date string."),
   summary: z.string().min(1, "Summary is required."),
   slug: z.string().min(1, "Slug is required."),
-  likes: z.number().int().min(0).optional(),
+  likes: z.string().min(0).optional(),
   likedIP: z
     .string()
     .regex(

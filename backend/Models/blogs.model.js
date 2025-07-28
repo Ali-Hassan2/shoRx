@@ -11,7 +11,16 @@ const blogSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    image: String,
+    image: {
+      public_id: {
+        type: String,
+        required: true,
+      },
+      url: {
+        type: String,
+        required: true,
+      },
+    },
     author: {
       type: String,
     },
@@ -34,7 +43,7 @@ const blogSchema = new mongoose.Schema(
       unique: true,
     },
     likes: {
-      type: Number,
+      type: String,
       default: 0,
     },
     likedIP: [String],

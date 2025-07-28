@@ -2,11 +2,13 @@ const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
+const fileUpload = require("express-fileupload");
+const cookieParser = require("cookie-parser");
+const cloudinary = require("cloudinary").v2;
 const { connect_db, disconnect_db } = require("./Config/db");
 const adminRouter = require("./Routes/adminRoute");
 const chatRouter = require("./Routes/chatRoute");
 const blogsRouter = require("./Routes/blogsRoute");
-
 dotenv.config();
 
 const app = express();
@@ -15,7 +17,21 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 app.use(morgan("dev"));
+app.use(cookieParser());
+app.use(
+  fileUpload({
+    useTempFiles: true,
+    tempFileDir: "/tmp/",
+    limits: { fileSize: 50 * 1024 * 1024 },
+  })
+);
 
+//cloudinary Configuration
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET,
+});
 // routes here
 app.use("/admin", adminRouter);
 app.use("/chat", chatRouter);

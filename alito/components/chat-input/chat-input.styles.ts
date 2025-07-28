@@ -4,12 +4,14 @@ const InputWrapper = styled.div`
   width: 800px;
   background-color: #191919;
   margin-top: 50px;
-  height: 100px;
+  height: 90px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
   border-radius: 20px;
   font-family: "Mulish", sans-serif;
   border: 1px solid #191919;
-
-  /* Subtle white glow */
   box-shadow: 0 2px 8px rgba(255, 255, 255, 0.15);
 
   @media (max-width: 850px) {
@@ -19,7 +21,7 @@ const InputWrapper = styled.div`
 
 const First = styled.div`
   width: 100%;
-  height: 70%;
+  height: 60%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -66,18 +68,18 @@ const SendIconWrapper = styled.div`
 `;
 
 const BottomIconsWrapper = styled.div`
-  width: 801px;
+  width: 100%;
+
   position: relative;
-  left: -1px;
   height: 40%;
-  margin-top: 10px;
   display: flex;
+  gap: 12px;
   align-items: center;
-  gap: 20px;
   padding-left: 18px;
   border-bottom-right-radius: 20px;
   border-bottom-left-radius: 20px;
-  padding-top: 10px;
+  padding-top: 13px;
+  margin-top: 10px;
   padding-bottom: 7px;
 `;
 
@@ -94,8 +96,9 @@ const Icon = styled.div`
 const ToolsText = styled.span`
   color: white;
   font-weight: 700;
-  font-size: 16px;
+  font-size: 12px;
   cursor: default;
+  margin-bottom: 4px;
 `;
 
 export {

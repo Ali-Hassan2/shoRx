@@ -1,9 +1,7 @@
 const sendresponse = require("../Utils/sendresponse");
 const blogsval = require("../Validations/blogsvalidation");
 const Blogs = require("../Models/blogs.model");
-const Admin = require("../Models/admin.model");
-const Blog = require("../Models/blogs.model");
-
+const cloudinary = require("cloudinary").v2;
 const creatingblog = async (req, res) => {
   const blogsvalidation = blogsval.safeParse(req.body);
   if (!blogsvalidation.success) {
@@ -26,7 +24,6 @@ const creatingblog = async (req, res) => {
   const {
     title,
     content,
-    image,
     author,
     category,
     tags,
@@ -36,21 +33,37 @@ const creatingblog = async (req, res) => {
     slug,
     likes,
   } = req.body;
-
   try {
+    const { image } = req.files;
+    if (!req?.files || Object.keys(req.files).length === 0) {
+      return sendresponse(res, 402, false, "No images found");
+    }
+    const allowed_format = ["image/png", "image/jpeg"];
+    if (!allowed_format.includes(image.mimetype)) {
+      sendresponse(res, 400, false, "Format not allowed");
+    }
+
+    const uploadResult = await cloudinary.uploader.upload(image.tempFilePath);
+    if (!uploadResult || uploadResult.error) {
+      sendresponse(res, 400, false, "There is an error while uploading image.");
+    }
     const existingBlog = await Blogs.findOne({ title });
     if (existingBlog) {
       return sendresponse(
         res,
         403,
         false,
-        "Blog with this title already exists."
+        "Blog with this title already exists.",
+        existingBlog
       );
     }
     const newBlog = await Blogs.create({
       title,
       content,
-      image,
+      image: {
+        public_id: uploadResult.public_id,
+        url: uploadResult.url,
+      },
       author,
       category,
       tags: Array.isArray(tags) ? tags : [],

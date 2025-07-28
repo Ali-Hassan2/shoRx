@@ -43,14 +43,14 @@ const ChatInput = ({
       </First>
       <BottomIconsWrapper>
         <Icon>
-          <FiSettings size={20} />
+          <FiSettings size={16} />
         </Icon>
         <Icon onClick={onSecondIconClick}>
           {" "}
-          <FiMessageCircle size={20} />
+          <FiMessageCircle size={16} />
         </Icon>
         <Icon>
-          <FiSmile size={20} />
+          <FiSmile size={16} />
         </Icon>
         <ToolsText>Write Tools</ToolsText>
       </BottomIconsWrapper>
