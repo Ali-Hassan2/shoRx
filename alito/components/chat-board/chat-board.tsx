@@ -17,11 +17,18 @@ type Message = {
 interface ChatBoardProps {
   messages: Message[];
 }
-
 const MessagesContainer = styled.div`
   padding: 1rem;
   max-height: 400px;
   overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  scrollbar-width: none;
+
+  -ms-overflow-style: none;
 
   @media (max-width: 900px) {
     max-height: 350px;

@@ -20,6 +20,15 @@ const creatingadmin = async (req, res) => {
   }
 
   try {
+    const adminid = req.adminmid;
+    if (!adminid) {
+      sendresponse(
+        res,
+        402,
+        false,
+        "You have no access only admin can create another admin."
+      );
+    }
     if (!email || !password) {
       return res.status(402).json({
         success: false,
@@ -71,9 +80,7 @@ const proceedingadmin = async (req, res) => {
       return sendresponse(res, 400, false, "Please complete the input");
     }
 
-    // Make sure to select password
     const admin = await Admin.findOne({ email }).select("+password");
-
     if (!admin) {
       return sendresponse(res, 404, false, "Admin not found");
     }

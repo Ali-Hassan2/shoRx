@@ -57,7 +57,7 @@ export const ReadMoreButton = styled.button`
   border: none;
   cursor: pointer;
   align-self: flex-start;
-  margin-top: 10px;
+  margin-top: 40px;
   transition: background-color 0.2s ease;
 
   &:hover {

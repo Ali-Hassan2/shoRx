@@ -87,6 +87,7 @@ export const BlogList = styled.div`
 export const BlogTitle = styled.div`
   padding: 0.25rem 0;
   cursor: pointer;
+  margin-bottom: 10px;
   color: #ccc;
   font-size: 0.9rem;
   transition: color 0.2s;

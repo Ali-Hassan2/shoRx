@@ -7,6 +7,7 @@ import {
   RightSide,
   Anchor,
 } from "./navbar.style";
+import { useRouter } from "next/navigation";
 
 interface NavbarProps {
   title: string;
@@ -16,6 +17,10 @@ interface NavbarProps {
   contact: string;
 }
 const Navbar = ({ title, home, about, blogs, contact }: NavbarProps) => {
+  const router = useRouter();
+  const handleRouting = (path: string) => {
+    router.push(path);
+  };
   return (
     <>
       <NavbarWrapper>
@@ -26,10 +31,10 @@ const Navbar = ({ title, home, about, blogs, contact }: NavbarProps) => {
           </Title>
         </LeftSide>
         <RightSide>
-          <Anchor>{home}</Anchor>
-          <Anchor>{about}</Anchor>
-          <Anchor>{blogs}</Anchor>
-          <Anchor>{contact}</Anchor>
+          <Anchor onClick={() => handleRouting("/")}>{home}</Anchor>
+          <Anchor onClick={() => handleRouting("/about")}>{about}</Anchor>
+          <Anchor onClick={() => handleRouting("/blogs")}>{blogs}</Anchor>
+          <Anchor onClick={() => handleRouting("/contact")}>{contact}</Anchor>
         </RightSide>
       </NavbarWrapper>
     </>
