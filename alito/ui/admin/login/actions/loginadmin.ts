@@ -8,7 +8,7 @@ interface AdminType {
 interface BodyType {
   email: string;
   password: string;
-  data?: any;
+  data?: [];
   token: string;
 }
 

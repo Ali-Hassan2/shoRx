@@ -11,20 +11,23 @@ interface bodyType {
   password: string;
 }
 
-const creatingadmin = async ({ body: bodyType }): Promise<adminType> => {
+const creatingadmin = async (body: bodyType): Promise<adminType> => {
   const controller = new AbortController();
   const signal = controller.signal;
   const timer = 1500;
   const timeout = setTimeout(() => controller.abort(), timer);
 
+  const token =
+    typeof window !== "undefined" ? localStorage.getItem("admintoken") : null;
   try {
     const response = await fetch(API_ENDPOINTS.adminsignup, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        ...(token ? { Authorization: `Bearer ${token}` } : {}),
       },
       signal: signal,
-      body: JSON.stringify({ body }),
+      body: JSON.stringify(body),
     });
     clearTimeout(timeout);
     if (!response.ok) {

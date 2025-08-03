@@ -3,9 +3,16 @@ import { AdminSignup } from "@/components";
 import { PageWrapper, HeadingOne } from "./signup.styles";
 import { useRouter } from "next/navigation";
 import { creatingadmin } from "./actions/creatingadmin";
+import { showError, showSuccess } from "@/Utils";
+
+interface info {
+  name: string;
+  email: string;
+  password: string;
+}
 const SignUp = () => {
   const router = useRouter();
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<info>({
     name: "",
     email: "",
     password: "",
@@ -27,17 +34,19 @@ const SignUp = () => {
   };
 
   const handlesubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const { name, email, password } = formData;
     const payload = { name, email, password };
     try {
-      const result = await creatingadmin();
+      const result = await creatingadmin(payload);
       console.log("The signup result is:", result);
       if (result.success) {
         console.log("Admin created successfully");
-        alert("Admin created.");
+        showSuccess("Admin created.");
       }
     } catch (error) {
-      console.log("Something went wrong");
-      alert("Cannot create an admin");
+      console.log("Something went wrong", error);
+      showError("Cannot create an admin");
     }
   };
   return (
