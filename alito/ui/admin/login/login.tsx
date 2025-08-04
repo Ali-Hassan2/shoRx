@@ -24,7 +24,7 @@ const Login = () => {
         localStorage.setItem("admin-info", JSON.stringify(result.data));
         localStorage.setItem("admintoken", result.token || "");
         setAdmin(result.data);
-        router.push("/blogs");
+        router.push("/admin/dashboard");
       } else {
         alert(result.message);
       }

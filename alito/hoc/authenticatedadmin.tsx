@@ -23,7 +23,7 @@ const WithAdmin = <P extends object>(WrappedComponents: ComponentTypes<P>) => {
 
     if (!isverified) return null;
 
-    return <WrappedComponents {...prop} />;
+    return <WrappedComponents {...props} />;
   };
   return Authentication;
 };

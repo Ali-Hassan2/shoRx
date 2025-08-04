@@ -7,9 +7,9 @@ const sendresponse = require("../Utils/sendresponse");
 dotenv.config();
 
 const creatingadmin = async (req, res) => {
-  const name = req?.body?.name;
-  const email = req?.body?.email;
-  const password = req?.body?.password;
+  const name = req.body?.name;
+  const email = req.body?.email;
+  const password = req.body?.password;
   const adminvalidation = avalidation.safeParse(req.body);
   if (!adminvalidation) {
     return res.status(400).send({
@@ -74,7 +74,7 @@ const creatingadmin = async (req, res) => {
 
 const proceedingadmin = async (req, res) => {
   try {
-    const { email, password } = req?.body;
+    const { email, password } = req.body;
 
     if (!email || !password) {
       return sendresponse(res, 400, false, "Please complete the input");

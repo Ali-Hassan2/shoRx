@@ -5,12 +5,12 @@ import { Admin } from "@/types/admin";
 
 interface adminContextTypes {
   admin: Admin | null;
-  setadmin: (admin: Admin | null) => void;
+  setAdmin: (admin: Admin | null) => void;
 }
 
 const AdminContext = createContext<adminContextTypes>({
   admin: null,
-  setadmin: () => {},
+  setAdmin: () => {},
 });
 
 interface AdminProps {
