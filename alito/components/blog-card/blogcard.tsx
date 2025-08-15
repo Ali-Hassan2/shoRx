@@ -12,7 +12,8 @@ import {
   LikesText,
   PublishDateText,
 } from "./blogcard.styles";
-import { FiHeart } from "react-icons/fi"; 
+import { FiHeart } from "react-icons/fi";
+import Link from "next/link";
 
 const Blogcard: React.FC<BlogcardProps> = ({ blog }) => {
   return (
@@ -38,8 +39,9 @@ const Blogcard: React.FC<BlogcardProps> = ({ blog }) => {
           {new Date(blog.publish_Date).toLocaleDateString()}
         </PublishDateText>
       </LikesPublishWrapper>
-
-      <ReadMoreButton>Read More</ReadMoreButton>
+      <Link href={`/blogs/${blog._id}`} passHref>
+        <ReadMoreButton>Read More</ReadMoreButton>
+      </Link>
     </CardWrapper>
   );
 };
