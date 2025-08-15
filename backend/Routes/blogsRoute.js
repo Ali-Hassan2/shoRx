@@ -6,8 +6,10 @@ const {
   gettingblog,
   updatingblog,
   deletingblog,
+  getsingle,
 } = require("../Controller/blogsController");
 router.post("/createblog", adminmiddleware, creatingblog);
+router.get("/getsingleblog/:id", getsingle);
 router.get("/gettingblog", gettingblog);
 router.put("/updateblog", updatingblog);
 router.delete("/deleteblog", deletingblog);

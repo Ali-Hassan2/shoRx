@@ -3,7 +3,6 @@ const blogsval = require("../Validations/blogsvalidation");
 const Blogs = require("../Models/blogs.model");
 const cloudinary = require("cloudinary").v2;
 
-
 const creatingblog = async (req, res) => {
   const blogsvalidation = blogsval.safeParse(req.body);
   if (!blogsvalidation.success) {
@@ -94,7 +93,43 @@ const gettingblog = async (req, res) => {
     ]);
   }
 };
+
+const getsingle = async (req, res) => {
+  console.log("i hitted hard.");
+  const { id } = req.params;
+  if (!id) {
+    console.log("No id there man.");
+    return sendresponse(res, 404, false, "Id not provided.");
+  }
+  try {
+    console.log("The id is:", id);
+    if (id) {
+      const blog = await Blogs.findById(id);
+      if (!blog) {
+        return res.status(404).send({
+          success: false,
+          message: "No blog.",
+        });
+      } else {
+        return res.status(200).json({
+          success: true,
+          message: "Block data fetched,",
+          blog: blog,
+        });
+      }
+    }
+  } catch (error) {
+    console.log("There is an error", error);
+    return sendresponse(res, 500, false, null, "Internal Server error.");
+  }
+};
 const updatingblog = async () => {};
 const deletingblog = async () => {};
 
-module.exports = { creatingblog, gettingblog, updatingblog, deletingblog };
+module.exports = {
+  creatingblog,
+  gettingblog,
+  updatingblog,
+  deletingblog,
+  getsingle,
+};
