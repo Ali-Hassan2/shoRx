@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import { MainLayout } from "@/layout";
 import { blogType } from "@/types";
 import { fetchBlog } from "./actions/get_blog";
+import { useParams } from "next/navigation";
+
 interface fetchingBlogType {
   success: boolean;
   message: string | boolean;
@@ -10,38 +12,41 @@ interface fetchingBlogType {
 }
 
 const BlogDetailsPage: React.FC = () => {
-  const router = useRouter();
-  const { id } = router.query;
-  const [blogs, setblogs] = useState<blogType[] | null>([]);
+  const params = useParams();
+  const ID = params?.id;
+  const [blogs, setBlogs] = useState<blogType[] | null>([]);
 
   useEffect(() => {
-    const getblog = async (): void => {
-      const data: fetchingBlogType = await fetchBlog({ id });
-      console.log("The data is:", data);
+    if (!ID) return; // agar ID undefined hai to fetch mat karo
+
+    const getBlog = async () => {
+      console.log("Fetching blog for ID:", ID);
+      const data: fetchingBlogType = await fetchBlog({ id: ID as string });
+      console.log("Fetched data:", data);
+
       if (data.success && data.data) {
-        setblogs(data.data);
+        setBlogs(Array.isArray(data.data) ? data.data : [data.data]);
       }
     };
-    getblog();
-  }, []);
+
+    getBlog();
+  }, [ID]); // <- dependency me ID daalna important hai
+
   return (
     <MainLayout>
-      <h1>Blog Details for: {id}</h1>
-      {blogs.length === 0 ? (
+      <h1>Blog Details for: {ID}</h1>
+      {blogs?.length === 0 ? (
         <p>No Blog found associated with this id</p>
       ) : (
-        blogs.map((blg) => {
-          return (
-            <div key={blg._id}>
-              <h1>{blg.title}</h1>
-              <h1>{blg.author}</h1>
-              <h1>{blg.content}</h1>
-            </div>
-          );
-        })
+        blogs.map((blg) => (
+          <div key={blg._id}>
+            <h1>{blg.title}</h1>
+            <h1>{blg.author}</h1>
+            <h1>{blg.content}</h1>
+          </div>
+        ))
       )}
     </MainLayout>
-    // Working on it
   );
 };
 

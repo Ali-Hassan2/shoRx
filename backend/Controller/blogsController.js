@@ -114,7 +114,7 @@ const getsingle = async (req, res) => {
         return res.status(200).json({
           success: true,
           message: "Block data fetched,",
-          blog: blog,
+          data: blog,
         });
       }
     }
