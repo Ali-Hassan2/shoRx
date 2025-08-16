@@ -17,7 +17,7 @@ const BlogDetailsPage: React.FC = () => {
   const [blogs, setBlogs] = useState<blogType[] | null>([]);
 
   useEffect(() => {
-    if (!ID) return; // agar ID undefined hai to fetch mat karo
+    if (!ID) return;
 
     const getBlog = async () => {
       console.log("Fetching blog for ID:", ID);
@@ -30,8 +30,7 @@ const BlogDetailsPage: React.FC = () => {
     };
 
     getBlog();
-  }, [ID]); // <- dependency me ID daalna important hai
-
+  }, [ID]);
   return (
     <MainLayout>
       <h1>Blog Details for: {ID}</h1>
