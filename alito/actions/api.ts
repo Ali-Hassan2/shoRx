@@ -7,4 +7,5 @@ const API_ENDPOINTS = {
   adminlogin: `${BASE_URL}/admin/login`,
   getsingleBlog: `${BASE_URL}/blog/getsingleblog`,
 };
+
 export { API_ENDPOINTS };
