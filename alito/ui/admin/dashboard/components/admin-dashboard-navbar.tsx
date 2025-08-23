@@ -1,4 +1,5 @@
 import { NavbarWrapper, Left, Right } from "./admin-dashboard-navbar.styles";
+
 const ANavbar = () => {
   const storedinfo = localStorage.getItem("admin-info");
   const info = storedinfo ? JSON.parse(storedinfo) : null;
@@ -6,7 +7,7 @@ const ANavbar = () => {
   return (
     <>
       <NavbarWrapper>
-        <Left>Welcome {info.name}</Left>
+        <Left>Welcome {info ? info.name : "Admin"}</Left>
         <Right></Right>
       </NavbarWrapper>
     </>
