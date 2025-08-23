@@ -13,8 +13,15 @@ dotenv.config();
 
 const app = express();
 const port = process.env.PORT || 5000;
+app.use(
+  cors({
+    origin: "http://localhost:3000", // frontend URL
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+    credentials: true,
+  })
+);
 
-app.use(cors());
+// agar cookies/session use kar rahe ho to:
 app.use(express.json());
 app.use(morgan("dev"));
 app.use(cookieParser());

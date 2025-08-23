@@ -1,6 +1,6 @@
 import React from "react";
 import { adminlogout } from "./actions/admin";
-import { showError } from "@/Utils";
+import { showError, showSuccess } from "@/Utils";
 import { useRouter } from "next/navigation";
 
 const Dashboard = () => {
@@ -12,7 +12,7 @@ const Dashboard = () => {
     try {
       const result = await adminlogout();
       if (result.success) {
-        showError("Logout Successfull.");
+        showSuccess("Logout Successfull.");
         handlerouting("/admin/login");
       } else {
         showError(`Cannot logout. ${result?.message}`);

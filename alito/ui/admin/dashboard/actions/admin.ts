@@ -1,44 +1,45 @@
 import { API_ENDPOINTS } from "@/actions";
 
-interface adminstatus {
+interface AdminStatus {
   success: boolean;
   message: string;
 }
 
-const adminlogout = async (): Promise<adminstatus> => {
+const adminlogout = async (): Promise<AdminStatus> => {
   const controller = new AbortController();
-  const signal = controller.signal;
-  const timer = 3000;
-  const timeout = setTimeout(() => controller.abort(), timer);
+  const timeout = setTimeout(() => controller.abort(), 3000);
+
   try {
     const result = await fetch(API_ENDPOINTS.adminlogout, {
       method: "POST",
       credentials: "include",
+      signal: controller.signal,
     });
+
     clearTimeout(timeout);
+
     if (!result.ok) {
-      const error_Data = await result.json().catch(() => null);
-      throw new Error(error_Data?.message || "Server error occured.");
+      const errorData = await result.json().catch(() => null);
+      throw new Error(errorData?.message || "Server error occurred.");
     }
+
     const data = await result.json();
+
     localStorage.removeItem("admintoken");
     localStorage.removeItem("admin-info");
+
     return {
       success: data.success ?? false,
       message: data.message,
     };
   } catch (error: unknown) {
     clearTimeout(timeout);
+
     if (error.name === "AbortError") {
-      return {
-        success: false,
-        message: "Request timeout",
-      };
-      return {
-        success: false,
-        message: error?.message ?? "unknown error",
-      };
+      return { success: false, message: "Request timeout" };
     }
+
+    return { success: false, message: error?.message ?? "Unknown error" };
   }
 };
 

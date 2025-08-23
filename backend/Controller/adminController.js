@@ -133,17 +133,19 @@ const proceedingadmin = async (req, res) => {
 
 const adminlogout = async (req, res) => {
   try {
-    if (!req.cookie?.jwt) {
-      return sendresponse(res, 404, false, "Please Login first");
-    }
-    res.clearCookie("jwt");
-    return res.status(200).send({
+    res.clearCookie("jwt", {
+      httpOnly: true,
+      sameSite: "strict",
+      secure: process.env.NODE_ENV === "production",
+    });
+
+    return res.status(200).json({
       success: true,
-      message: "logout successfull",
+      message: "Logout successful",
     });
   } catch (error) {
-    console.log("There is an error:", error);
-    return res.status(501).json({
+    console.error("Logout error:", error);
+    return res.status(500).json({
       success: false,
       message: "Cannot logout the admin",
       error: error?.message,
