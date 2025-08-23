@@ -22,7 +22,6 @@ const Dashboard = () => {
       showError("Something went wrong. Please try again.");
     }
   };
-
   return (
     <div>
       Welcome to admin Dashboard
