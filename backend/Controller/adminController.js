@@ -131,4 +131,15 @@ const proceedingadmin = async (req, res) => {
   }
 };
 
+const adminloout = async (req, res) => {
+  try {
+    if (!req.cookie.jwt) {
+      sendresponse(res, 404, false, "Please Login first");
+    }
+    res.clearCookie('jwt')
+    return res.status(200).
+
+  } catch (error) {}
+};
+
 module.exports = { creatingadmin, proceedingadmin };
