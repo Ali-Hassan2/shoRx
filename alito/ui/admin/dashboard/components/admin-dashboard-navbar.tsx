@@ -1,11 +1,12 @@
 import { NavbarWrapper, Left, Right } from "./admin-dashboard-navbar.styles";
 const ANavbar = () => {
-  const info = localStorage.getItem("admin-info");
+  const storedinfo = localStorage.getItem("admin-info");
+  const info = storedinfo ? JSON.parse(storedinfo) : null;
   console.log("The info is:", info);
   return (
     <>
       <NavbarWrapper>
-        <Left></Left>
+        <Left>Welcome {info.name}</Left>
         <Right></Right>
       </NavbarWrapper>
     </>
