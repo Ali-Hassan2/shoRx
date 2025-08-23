@@ -133,7 +133,7 @@ const proceedingadmin = async (req, res) => {
 
 const adminlogout = async (req, res) => {
   try {
-    if (!req.cookie.jwt) {
+    if (!req.cookie?.jwt) {
       return sendresponse(res, 404, false, "Please Login first");
     }
     res.clearCookie("jwt");

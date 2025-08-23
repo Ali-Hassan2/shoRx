@@ -19,7 +19,7 @@ const Dashboard = () => {
       }
     } catch (error: unknown) {
       console.log("Unexpected error.", error);
-      showError("Something went wrong. Please try again.s");
+      showError("Something went wrong. Please try again.");
     }
   };
 
