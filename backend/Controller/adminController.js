@@ -131,10 +131,10 @@ const proceedingadmin = async (req, res) => {
   }
 };
 
-const adminloout = async (req, res) => {
+const adminlogout = async (req, res) => {
   try {
     if (!req.cookie.jwt) {
-      sendresponse(res, 404, false, "Please Login first");
+      return sendresponse(res, 404, false, "Please Login first");
     }
     res.clearCookie("jwt");
     return res.status(200).send({
@@ -151,4 +151,4 @@ const adminloout = async (req, res) => {
   }
 };
 
-module.exports = { creatingadmin, proceedingadmin };
+module.exports = { creatingadmin, proceedingadmin, adminlogout };
