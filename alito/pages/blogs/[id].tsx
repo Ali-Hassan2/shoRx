@@ -18,7 +18,6 @@ const BlogDetailsPage: React.FC = () => {
 
   useEffect(() => {
     if (!ID) return;
-
     const getBlog = async () => {
       console.log("Fetching blog for ID:", ID);
       const data: fetchingBlogType = await fetchBlog({ id: ID as string });
