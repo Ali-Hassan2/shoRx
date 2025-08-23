@@ -5,7 +5,8 @@ const NavbarWrapper = styled.div`
   height: 50px;
   border: 3px solid red;
   display: flex;
-  
+  justify-content: center;
+  align-items: center;
 `;
 const Left = styled.div`
   width: 50%;
