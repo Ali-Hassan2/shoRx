@@ -12,11 +12,16 @@ const Left = styled.div`
   width: 50%;
   height: 100%;
   border: 1px solid blue;
+  font-size: 2vw;
+  font-weight: 700;
 `;
 const Right = styled.div`
   width: 50%;
   height: 100%;
   border: 2px solid white;
 `;
+const HeadingF = styled.div`
 
-export { NavbarWrapper, Left, Right };
+`
+
+export { NavbarWrapper, Left, Right, HeadingF };

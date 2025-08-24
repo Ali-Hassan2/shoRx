@@ -1,4 +1,9 @@
-import { NavbarWrapper, Left, Right } from "./admin-dashboard-navbar.styles";
+import {
+  NavbarWrapper,
+  Left,
+  Right,
+  HeadingF,
+} from "./admin-dashboard-navbar.styles";
 
 const ANavbar = () => {
   const storedinfo = localStorage.getItem("admin-info");
@@ -7,8 +12,13 @@ const ANavbar = () => {
   return (
     <>
       <NavbarWrapper>
-        <Left>Welcome {info ? info.name : "Admin"}</Left>
-        <Right></Right>
+        <Left>Welcome, {info ? info.name : "Admin"}</Left>
+        <Right>
+          <HeadingF>Home</HeadingF>
+          <HeadingF>Blog Mgmt</HeadingF>
+          <HeadingF>Stats</HeadingF>
+          <HeadingF>Messages</HeadingF>
+        </Right>
       </NavbarWrapper>
     </>
   );
