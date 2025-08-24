@@ -1,5 +1,10 @@
 import styled from "styled-components";
 
+interface HeadingFProps {
+  active: string;
+  color?: string;
+}
+
 const NavbarWrapper = styled.div`
   width: 100vw;
   height: 50px;
@@ -24,6 +29,12 @@ const Right = styled.div`
   align-items: center;
   gap: 100px;
 `;
-const HeadingF = styled.div``;
+const HeadingF = styled.div`
+  cursor: pointer;
+  font-weight: ${({ active }) => (active ? "700" : "400")};
+  color: ${({ color, active }) =>
+    active ? color || "yellow" : color || "white"};
+  border-bottom: ${({ active }) => (active ? "2px solid white" : "none")};
+`;
 
 export { NavbarWrapper, Left, Right, HeadingF };
