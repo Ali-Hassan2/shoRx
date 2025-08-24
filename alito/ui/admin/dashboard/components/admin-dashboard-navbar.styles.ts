@@ -19,9 +19,11 @@ const Right = styled.div`
   width: 50%;
   height: 100%;
   border: 2px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
 `;
-const HeadingF = styled.div`
-
-`
+const HeadingF = styled.div``;
 
 export { NavbarWrapper, Left, Right, HeadingF };

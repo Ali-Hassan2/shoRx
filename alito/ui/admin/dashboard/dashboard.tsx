@@ -9,6 +9,12 @@ const Dashboard = () => {
   const handlerouting = (path: string): void => {
     router.push(path);
   };
+  const menuItems = [
+    { label: "Home", path: "admin/dashboard" },
+    { label: "Blogmgmt", path: "admin/blogmgmt" },
+    { label: "Adminmgmt", path: "admin/adminmgmt" },
+    { label: "Messages", path: "admin/messages" },
+  ];
   const handlelogout = async () => {
     try {
       const result = await adminlogout();
@@ -25,7 +31,7 @@ const Dashboard = () => {
   };
   return (
     <PageWrapper>
-      <ANavbar />
+      <ANavbar menuItem={menuItem} />
       Welcome to admin Dashboard
       <button onClick={handlelogout}>Logout</button>
     </PageWrapper>
