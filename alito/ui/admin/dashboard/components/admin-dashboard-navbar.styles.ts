@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 interface HeadingFProps {
-  active: string;
+  active?: boolean;
   color?: string;
 }
 
@@ -29,7 +29,7 @@ const Right = styled.div`
   align-items: center;
   gap: 100px;
 `;
-const HeadingF = styled.div`
+const HeadingF = styled.div<HeadingFProps>`
   cursor: pointer;
   font-weight: ${({ active }) => (active ? "700" : "400")};
   color: ${({ color, active }) =>

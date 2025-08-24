@@ -25,7 +25,7 @@ const ANavbar = ({ menuItems = [], activePath }: ANavbarProps) => {
         <Left>Welcome, {info ? info.name : "Admin"}</Left>
         <Right>
           {menuItems.map((mt, index) => (
-            <HeadingF key={index} active={activePath === mt.path} color="white">
+            <HeadingF key={index} active={activePath === mt.path}>
               {mt.label}
             </HeadingF>
           ))}
