@@ -10,7 +10,11 @@ interface MenuItems {
   path: string;
 }
 
-const ANavbar = () => {
+interface ANavbarProps {
+  menuItems?: MenuItems[];
+}
+
+const ANavbar = ({ menuItems = [] }: ANavbarProps) => {
   const storedinfo = localStorage.getItem("admin-info");
   const info = storedinfo ? JSON.parse(storedinfo) : null;
   console.log("The info is:", info);
@@ -18,7 +22,11 @@ const ANavbar = () => {
     <>
       <NavbarWrapper>
         <Left>Welcome, {info ? info.name : "Admin"}</Left>
-        <Right></Right>
+        <Right>
+          {menuItems.map((mt, index) => (
+            <HeadingF key={index}>{mt.label}</HeadingF>
+          ))}
+        </Right>
       </NavbarWrapper>
     </>
   );
