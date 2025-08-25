@@ -4,14 +4,15 @@ import { showError, showSuccess } from "@/Utils";
 import { useRouter } from "next/navigation";
 import { ANavbar } from "./components";
 import { PageWrapper } from "./dashboard.styles";
+import { ROUTES } from "@/lib/Routes";
 const Dashboard = () => {
   const router = useRouter();
   const handlerouting = (path: string): void => {
     router.push(path);
   };
   const menuItems = [
-    { label: "Home", path: "/admin/dashboard" },
-    { label: "Blogmgmt", path: "/admin/blogmgmt" },
+    { label: "Home", path: ROUTES.ADMIN.DASHBOARD },
+    { label: "Blogmgmt", path: ROUTES.ADMIN.BLOGMGMT },
     { label: "Adminmgmt", path: "/admin/adminmgmt" },
     { label: "Messages", path: "/admin/messages" },
   ];
