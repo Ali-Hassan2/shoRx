@@ -5,12 +5,17 @@ import { useRouter } from "next/navigation";
 import { ANavbar, ALanding } from "./components";
 import { PageWrapper } from "./dashboard.styles";
 import { ROUTES } from "@/lib/Routes";
+interface menuItemsTypes {
+  label: string;
+  path: string;
+}
 const Dashboard = () => {
   const router = useRouter();
   const handlerouting = (path: string): void => {
     router.push(path);
   };
-  const menuItems = [
+
+  const menuItems: menuItemsTypes[] = [
     { label: "Home", path: ROUTES.ADMIN.DASHBOARD },
     { label: "Blogmgmt", path: ROUTES.ADMIN.BLOGMGMT },
     { label: "Adminmgmt", path: "/admin/adminmgmt" },
