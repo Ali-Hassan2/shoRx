@@ -3,8 +3,10 @@ export const ROUTES = {
   ABOUT: "/aboutus",
   CONTACT: "/contactus",
   BLOGS: "/blogs",
-  admin: {
-    dashboard: "/admin/dashboard",
-    login:
+  ADMIN: {
+    DASHBOARD: "/admin/dashboard",
+    LOGIN: "/admin/login",
+    SIGNUP: "/admin/signup",
+    
   },
 };
