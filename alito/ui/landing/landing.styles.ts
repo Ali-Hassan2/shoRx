@@ -46,15 +46,15 @@ const shine = keyframes`
 `;
 
 const LightHeading = styled.h2`
-  font-size: clamp(14px, 4vw, 30px); /* Responsive font size */
+  font-size: clamp(14px, 4vw, 30px);
   font-weight: 700;
   font-family: "Mulish", sans-serif;
   letter-spacing: 3px;
   text-transform: uppercase;
   cursor: pointer;
-  text-align: center; /* Center the text */
-  margin: 0 auto; /* Center block element */
-  max-width: 90%; /* Keep it within bounds on small screens */
+  text-align: center;
+  margin: 0 auto;
+  max-width: 90%;
 
   background: linear-gradient(
     to right,

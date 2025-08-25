@@ -1,8 +1,10 @@
-import { LandingWrapper } from "./admin-dashboard-landing.styles";
+import { LandingWrapper, HeadingMain } from "./admin-dashboard-landing.styles";
 const ALanding = () => {
   return (
     <>
-      <LandingWrapper>Welcome to Admin Dashboard.</LandingWrapper>
+      <LandingWrapper>
+        <HeadingMain>Welcome, to Admin Dashboard.</HeadingMain>
+      </LandingWrapper>
     </>
   );
 };
