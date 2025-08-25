@@ -1,6 +1,10 @@
 import { BlogOption } from "@/components";
 import { BLandingWrapper } from "./BLanding.styles";
-const options = [
+interface optionsTypes {
+  label: string;
+  description: string;
+}
+const options: optionsTypes[] = [
   {
     label: "Write Blog",
     description: "Hello this is the blogs management page.",
