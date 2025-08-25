@@ -8,5 +8,7 @@ export const ROUTES = {
     LOGIN: "/admin/login",
     SIGNUP: "/admin/signup",
     BLOGMGMT: "/admin/dashboard/blog_mgmt",
+    ADMINMGMT: "/admin/dashboard/admin_mgmt",
+    MESSAGES: "/admin/dashboard/admin_messages",
   },
 };
