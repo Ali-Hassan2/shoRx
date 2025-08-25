@@ -16,7 +16,7 @@ interface ANavbarProps {
 }
 
 const ANavbar = ({ menuItems = [], activePath }: ANavbarProps) => {
-  const { goHome } = useNavigations();
+  const { goDashboard } = useNavigations();
   const storedinfo = localStorage.getItem("admin-info");
   const info = storedinfo ? JSON.parse(storedinfo) : null;
   console.log("The info is:", info);
@@ -25,6 +25,7 @@ const ANavbar = ({ menuItems = [], activePath }: ANavbarProps) => {
       <NavbarWrapper>
         <Left>Welcome, {info ? info.name : "Admin"}</Left>
         <Right>
+          <h2 onClick={goDashboard}>Blogs</h2>
           {menuItems.map((mt, index) => (
             <HeadingF key={index} active={activePath === mt.path}>
               {mt.label}
