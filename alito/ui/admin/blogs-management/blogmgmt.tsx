@@ -1,7 +1,8 @@
 import { ROUTES } from "@/lib";
 import React from "react";
 import { ANavbar } from "../dashboard/components";
-
+import { BlogMgmtWrapper } from "./blogsmgmt.styles";
+import { BLanding } from "./components";
 const menuItems = [
   { label: "Home", path: ROUTES.ADMIN.DASHBOARD },
   { label: "Blogmgmt", path: ROUTES.ADMIN.BLOGMGMT },
@@ -12,8 +13,10 @@ const menuItems = [
 const BlogsMgmt = () => {
   return (
     <>
-      <ANavbar menuItems={menuItems} />
-      
+      <BlogMgmtWrapper>
+        <ANavbar menuItems={menuItems} activePath={ROUTES.ADMIN.BLOGMGMT} />
+        <BLanding />
+      </BlogMgmtWrapper>
     </>
   );
 };

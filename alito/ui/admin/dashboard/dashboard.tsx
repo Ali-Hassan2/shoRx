@@ -32,7 +32,7 @@ const Dashboard = () => {
   };
   return (
     <PageWrapper>
-      <ANavbar menuItems={menuItems} activePath="/admin/dashboard" />
+      <ANavbar menuItems={menuItems} activePath={ROUTES.ADMIN.DASHBOARD} />
       <ALanding />
       {/* <button onClick={handlelogout}>Logout</button> */}
     </PageWrapper>
