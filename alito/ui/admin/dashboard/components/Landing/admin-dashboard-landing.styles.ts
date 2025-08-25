@@ -59,14 +59,20 @@ const HeadingMain = styled.div`
 const Buttons = styled.div`
   margin-top: 40px;
 `;
-
 const BlogButton = styled.div`
-  padding: 16px 50px;
-  background-color: white;
+  padding: 13px 36px;
+  background-color: rgba(255, 255, 255);
   color: black;
   border: none;
   outline: none;
   cursor: pointer;
+  border-radius: 5px;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  @media (max-width: 768px) {
+    padding: 10px 30px;
+    font-size: 14px;
+  }
 `;
 
 export { LandingWrapper, HeadingMain, Buttons, BlogButton };
