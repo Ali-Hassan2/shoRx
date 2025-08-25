@@ -1,27 +1,24 @@
 import React from "react";
-
-interface options {
+import { Card, CardWrapper } from "./BlogOption.styles";
+interface Option {
   label?: string;
   description?: string;
 }
 
 interface BlogOptionsProps {
-  options: options[];
+  options: Option[];
 }
-const BlogOption = ({ options = [] }: BlogOptionsProps): void => {
+
+const BlogOption = ({ options = [] }: BlogOptionsProps) => {
   return (
-    <>
-      <div>
-        {options.map((op, index) => {
-          return (
-            <div key={index}>
-              <h2>{op.label}</h2>
-              <p>{op.description}</p>
-            </div>
-          );
-        })}
-      </div>
-    </>
+    <CardWrapper>
+      {options.map((op, index) => (
+        <Card key={index}>
+          <h2>{op.label}</h2>
+          <p>{op.description}</p>
+        </Card>
+      ))}
+    </CardWrapper>
   );
 };
 
