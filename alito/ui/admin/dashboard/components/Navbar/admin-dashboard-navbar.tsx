@@ -13,7 +13,7 @@ interface MenuItems {
 
 interface ANavbarProps {
   menuItems?: MenuItems[];
-  activePath: string;
+  activePath?: string;
 }
 
 const ANavbar = ({ menuItems = [], activePath }: ANavbarProps) => {

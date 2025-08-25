@@ -2,7 +2,7 @@ import React from "react";
 import { adminlogout } from "./actions/admin";
 import { showError, showSuccess } from "@/Utils";
 import { useRouter } from "next/navigation";
-import { ANavbar } from "./components";
+import { ANavbar, ALanding } from "./components";
 import { PageWrapper } from "./dashboard.styles";
 import { ROUTES } from "@/lib/Routes";
 const Dashboard = () => {
@@ -33,8 +33,8 @@ const Dashboard = () => {
   return (
     <PageWrapper>
       <ANavbar menuItems={menuItems} activePath="/admin/dashboard" />
-      Welcome to admin Dashboard
-      <button onClick={handlelogout}>Logout</button>
+      <ALanding />
+      {/* <button onClick={handlelogout}>Logout</button> */}
     </PageWrapper>
   );
 };
