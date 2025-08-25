@@ -55,4 +55,8 @@ const HeadingMain = styled.div`
   }
 `;
 
-export { LandingWrapper, HeadingMain };
+const Buttons = styled.div`
+  border: 1px solid white;
+`;
+
+export { LandingWrapper, HeadingMain, Buttons };
