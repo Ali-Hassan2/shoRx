@@ -5,3 +5,4 @@ export { Blogcard } from "./blog-card/blogcard";
 export { CatSidebar } from "./sidebarCat/catsidebar";
 export { AdminSignup } from "./admin-signup/adminsignup";
 export { AdminLogin } from "./admin-login/login";
+export { BlogOption } from "./blogs-options-cards/BlogOption";

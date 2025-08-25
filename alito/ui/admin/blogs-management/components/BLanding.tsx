@@ -1,7 +1,27 @@
-import React from "react";
-
+import { BlogOption } from "@/components";
+import { BLandingWrapper } from "./BLanding.styles";
+const options = [
+  {
+    label: "Write Blog",
+    description: "Hello this is the blogs management page.",
+  },
+  {
+    label: "Update your Blogs",
+    description: "You can update your blogs here.",
+  },
+  {
+    label: "Delete your Blogs",
+    description: "You can delete your blogs here.",
+  },
+];
 const BLanding = () => {
-  return <div></div>;
+  return (
+    <>
+      <BLandingWrapper>
+        <BlogOption options={options} />
+      </BLandingWrapper>
+    </>
+  );
 };
 
 export { BLanding };
