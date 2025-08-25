@@ -7,6 +7,6 @@ export const ROUTES = {
     DASHBOARD: "/admin/dashboard",
     LOGIN: "/admin/login",
     SIGNUP: "/admin/signup",
-    
+    BLOGMGMT: "/admin/dashboard/blog_mgmt",
   },
 };
