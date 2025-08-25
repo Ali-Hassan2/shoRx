@@ -14,6 +14,7 @@ const options = [
     description: "You can delete your blogs here.",
   },
 ];
+
 const BLanding = () => {
   return (
     <>
