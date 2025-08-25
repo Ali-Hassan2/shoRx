@@ -6,6 +6,7 @@ const LandingWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   padding: 1rem;
 
   @media (max-width: 768px) {
@@ -56,7 +57,16 @@ const HeadingMain = styled.div`
 `;
 
 const Buttons = styled.div`
-  border: 1px solid white;
+  margin-top: 40px;
 `;
 
-export { LandingWrapper, HeadingMain, Buttons };
+const BlogButton = styled.div`
+  padding: 16px 50px;
+  background-color: white;
+  color: black;
+  border: none;
+  outline: none;
+  cursor: pointer;
+`;
+
+export { LandingWrapper, HeadingMain, Buttons, BlogButton };
