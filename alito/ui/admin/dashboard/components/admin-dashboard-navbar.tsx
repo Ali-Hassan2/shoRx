@@ -4,7 +4,7 @@ import {
   Right,
   HeadingF,
 } from "./admin-dashboard-navbar.styles";
-
+import { useNavigations } from "@/lib";
 interface MenuItems {
   label: string;
   path: string;
@@ -16,6 +16,7 @@ interface ANavbarProps {
 }
 
 const ANavbar = ({ menuItems = [], activePath }: ANavbarProps) => {
+  const { goHome } = useNavigations();
   const storedinfo = localStorage.getItem("admin-info");
   const info = storedinfo ? JSON.parse(storedinfo) : null;
   console.log("The info is:", info);
