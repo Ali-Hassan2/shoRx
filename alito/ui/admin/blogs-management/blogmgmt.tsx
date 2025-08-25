@@ -1,7 +1,7 @@
 import React from "react";
 
 const BlogsMgmt = () => {
-  return <div></div>;
+  return <div>This is blogs mgmt</div>;
 };
 
 export { BlogsMgmt };
