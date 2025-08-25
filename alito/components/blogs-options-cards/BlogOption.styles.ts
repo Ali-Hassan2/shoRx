@@ -9,20 +9,17 @@ const CardWrapper = styled.div`
   margin: 0 auto;
   padding: 2rem;
 
-  /* Tablets */
   @media (max-width: 1024px) {
     gap: 1.5rem;
     padding: 1.5rem;
   }
 
-  /* Mobiles */
   @media (max-width: 901px) {
     grid-template-columns: 1fr;
     gap: 1rem;
     padding: 1rem;
   }
 
-  /* Small phones */
   @media (max-width: 480px) {
     grid-template-columns: 1fr;
     padding: 0.75rem;
