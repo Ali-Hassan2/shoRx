@@ -41,7 +41,6 @@ const ANavbar = ({ menuItems = [], activePath }: ANavbarProps) => {
       <NavbarWrapper>
         <Left>Welcome, {info ? info.name : "Admin"}</Left>
         <Right>
-          <h2 onClick={goBlogmgmt}>Blogs</h2>
           {menuItems.map((mt, index) => (
             <HeadingF
               key={index}

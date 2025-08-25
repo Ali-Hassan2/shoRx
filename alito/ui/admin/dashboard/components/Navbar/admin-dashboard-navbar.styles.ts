@@ -6,7 +6,7 @@ interface HeadingFProps {
 }
 
 const NavbarWrapper = styled.div`
-  width: 100vw;
+  width: 99vw;
   height: 50px;
   border: 3px solid red;
   display: flex;

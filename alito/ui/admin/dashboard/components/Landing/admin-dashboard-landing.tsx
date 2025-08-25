@@ -2,7 +2,7 @@ import { LandingWrapper } from "./admin-dashboard-landing.styles";
 const ALanding = () => {
   return (
     <>
-      <LandingWrapper></LandingWrapper>
+      <LandingWrapper>Welcome to Admin Dashboard.</LandingWrapper>
     </>
   );
 };
